@@ -48,13 +48,13 @@ def upload():
         x_user = extract_features(read_bucket_objects(filename))
         prediction = classifier.predict(x_user)
         if prediction==0:
-            con= "Your BP is in the range of Hypotension"
+            con= "Your BP is in the range of Hypotension and You are Diabetic"
         elif prediction==1:
             con = "Your Bp is the range of Normal Blood Pressure"
         elif prediction==2:
             con =" Your Bp is the range of Elevated Blood Pressure"
         else:
-            con = " Your Bp is the range of Hypertension"
+            con = " Your Bp is the range of Hypertension are Non-Diabetic"
         
         content= con
     return render_template('content.html',content=content)
